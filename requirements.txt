@@ -10,13 +10,7 @@ langchain-pinecone
 langchain
 langchain_community
 python-dotenv
-pypdf
-
+pypdf 
 fastapi
-uvicorn
-langchain
-openai
-pinecone-client
-streamlit
-python-dotenv
-requests
+uvicorn[standard]
+python-multipart
