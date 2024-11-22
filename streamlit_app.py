@@ -59,13 +59,9 @@ def upload_pdf(file):
 # Function to ask a question from the backend
 def ask_question(question):
     try:
-        response = requests.post(
-            f"{API_BASE_URL}/ask_question/",
-            json={"question": question}, 
-        )
-        response.raise_for_status() 
-        return response.json()
-    except requests.exceptions.RequestException as e:
+        res = requests.post(f"http://host.docker.internal:8000/ask_question/?question={question}")
+        return res.json()
+    except Exception as e:
         st.error(f"Error asking question: {e}")
         return None
 
@@ -117,4 +113,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
